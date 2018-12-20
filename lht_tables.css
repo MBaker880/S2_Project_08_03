@@ -17,46 +17,99 @@
    Mobile Styles: 0px to 640px 
    ===============================
 */
-
-table, tbody, tr, td, th, caption {
-    display: block;
+/* Sets web page styles for mobile devices. */
+@media screen and (max-width: 640px) {
+/* Sets following elements to have a display of block. */
+    table, tbody, tr, td, th, caption {
+        display: block;
+    }
+/* Sets thead and h1 elements to be hidden on mobile devices since they arent necessary. */
+    thead, h1 {
+        display: none;
+    }
+/* Sets table captions to have white text with a background of gray. */
+    table caption {
+        color: white;
+        background: gray;
+        font-size: 1.5em;
+        line-height: 2em;
+    }
+/* Sets td elements to have more padding and a minimum height of 40 pixels. */
+    td {
+        border: 1px dotted gray;
+        color: rgb(11, 12, 145);
+        position: relative;
+        padding-left: 40%;
+        min-height: 40px;
+    }
+/* Sets only numbers to have this colored background with a 2 pixel border that is gray. */
+    tr:nth-of-type(odd) {
+        background: rgb(255, 235, 178);
+        border: 2px solid gray;
+    }
+    
+    td::before {
+        content: attr(data-date);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 40%;
+        padding: 5px;
+    }
 }
 
-thead, h1 {
-    display: none;
-}
-
-table caption {
-    color: white;
-    background: gray;
-    font-size: 1.5em;
-    line-height: 2em;
-}
-
-td {
-    border: 1px dotted gray;
-    color: rgb(11, 12, 145);
-    position: relative;
-    padding-left: 40%;
-    min-height: 40px;
-}
-
-tr:nth-of-type(odd) {
-    background: rgb(255, 235, 178);
-    border: 2px solid gray;
-}
-
-td::before {
-    content: attr(data-date);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 40%;
-    padding: 5px;
-}
 
 
 /* =============================================
    Tablet and Desktop Styles: greater than 640px
    =============================================
 */
+/* Sets style rules for desktop and tablet styles. */
+@media screen and (min-width: 641px){
+/* Sets table borders to collabs and adding an image to the bckground with no repeat. */
+    table {
+        background-image: url("lht_photo1.png");
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: 40%;
+        border: 6px double rgb(154, 64, 3);
+        border-collapse: collapse;
+        margin: 20px auto;
+        table-layout: fixed;
+        width: 85%;
+    }
+/* Creates specific rules that are applied to both th and td elements, creating a word rap for the words. */
+    th, td  {
+        border: 1px solid gray;
+        font-size: .85em;
+        font-weight: normal;
+        padding: 5px;
+        vertical-align: top;
+        width: 14.28%;
+        word-wrap: break-word;
+    }
+/* Sets different text and background colors for td elements. */
+    td {
+        background-color: rgba(171, 171, 171, 0.6);
+        color: rgb(11, 12, 145);
+    }
+
+/* Sets data date attribute to have this color and box shadow for only those marked february. */
+    [data-date*=Feb] {
+        background-color: rgba(232, 214, 148, 0.6);
+        box-shadow: 0px 0px 20px 0px gray inset;
+    }
+/* Aligns caption elements to the top and sets a different line spacing from the rest. */
+    caption {
+        vertical-align: top;
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 1.2em;
+        letter-spacing: 3px;
+    }
+/* Sets different text and background colors for th elements. */
+    th {
+        background-color: rgb(154, 64, 3);
+        color: white;
+    }
+}

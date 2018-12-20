@@ -16,4 +16,17 @@
 
 
 /* Column Styles */
+/* So here is where we set the column width and other things that effect the article. */
+article {
+	column-width: 260px;
+	column-gap: 20px;
+	column-rule: 1px solid rgb(154, 64, 31);
+	widows: 2;
+	orphans: 2;
+}
+/* SPAAAAAAAAAAAAAANNNNNNN AAALLLLLLLLLLLLLLL! of article h1 elements. :) */
+article h1 {
+	column-span: all;
+}
+
 
